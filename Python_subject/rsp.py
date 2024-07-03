@@ -4,7 +4,7 @@ def get_computer_choice():
     choices = ["가위", "바위", "보"]
     return random.choice(choices)
 
-def determine_winner(player, computer):
+def winner(player, computer):
     if player == computer:
         return "무승부"
     elif (player == "가위" and computer == "보") or \
@@ -25,11 +25,10 @@ def rock_scissors_paper_game():
             print("잘못된 입력입니다. 다시 입력하세요.")
             continue
 
-        player_choice = player_choice.capitalize()
         computer_choice = get_computer_choice()
 
         print(f"플레이어: {player_choice}, 컴퓨터: {computer_choice}")
-        result = determine_winner(player_choice, computer_choice)
+        result = winner(player_choice, computer_choice)
 
         if result == "승리":
             win_count += 1
